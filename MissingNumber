@@ -1,0 +1,28 @@
+
+//https://hive.smartinterviews.in/contests/smart-interviews-basic/problems/the-missing-number?page=0&pageSize=10
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class MissingNumber {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int[] arrayOfElements = Arrays.stream(br.readLine().split("\\s")).mapToInt(Integer::parseInt).toArray();
+		
+		int sumOf100Numbers = 0;
+		int sumOfArray = 0;
+		for (int i = 1; i <= 100; i++) {
+			sumOf100Numbers = sumOf100Numbers + i;
+		}
+		for (int j = 0; j < arrayOfElements.length; j++) {
+			sumOfArray = sumOfArray + arrayOfElements[j];
+		}
+		int missingNumber = sumOf100Numbers - sumOfArray;
+		System.out.print(missingNumber);
+
+	}
+
+}
